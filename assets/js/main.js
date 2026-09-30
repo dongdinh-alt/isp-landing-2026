@@ -20,6 +20,7 @@
   let lenis = null;
   if (!reduced && typeof window.Lenis !== 'undefined') {
     lenis = new Lenis({ duration: 1.15, easing: t => Math.min(1, 1.001 - Math.pow(2, -10 * t)), smoothWheel: true });
+    window.ISP_LENIS = lenis; // handy for debugging / programmatic scrolling
     if (hasGSAP) {
       lenis.on('scroll', ScrollTrigger.update);
       gsap.ticker.add(t => lenis.raf(t * 1000));
@@ -639,7 +640,7 @@
   /* --- Roadmap: flight path --- */
   const mm = gsap.matchMedia();
   const ticks = $$('.route__tick');
-  const tickAt = [0, .25, .5, .75, 1];
+  const tickAt = ticks.map(t => parseFloat(t.dataset.at || 0)); // positions along the track (Năm 1–4, flight, Fu Jen)
   const buildRoute = (pin) => {
     const tl = gsap.timeline({
       defaults: { ease: 'none' },
@@ -656,14 +657,19 @@
         }
       }
     });
+    // track spans 0 → .82 of the timeline; tick k is reached at .82 × its position
     tl.to('.route__fill', { scaleX: 1, duration: .82 }, 0)
       .fromTo('.route__plane', { left: '0%' }, { left: '100%', duration: .82 }, 0)
       .from('.phase--vn .phase__head, .phase--vn .phase__place, .phase--vn .phase__school, .phase--vn .phase__desc', { autoAlpha: .15, y: 20, stagger: .02, duration: .1 }, 0)
-      .from('.phase--vn .block', { autoAlpha: 0, x: -30, stagger: .08, duration: .12 }, .05)
-      .from('.phase--tw', { autoAlpha: .18, duration: .12 }, .36)
-      .from('.phase--tw .block', { autoAlpha: 0, x: 30, stagger: .07, duration: .12 }, .48)
-      .from('.route__finish', { autoAlpha: 0, y: 30, duration: .12 }, .84)
-      .to({}, { duration: .06 });
+      .from('.phase--vn .block', { autoAlpha: 0, x: -30, stagger: .08, duration: .1 }, .03)
+      .from('.phase--tw .phase__main', { autoAlpha: .18, duration: .1 }, .25)          // plane crosses the divider (33%)
+      .from('.phase--tw .block', { autoAlpha: 0, x: 30, stagger: .06, duration: .1 }, .36)
+      .to('.route__plane', { autoAlpha: 0, scale: .6, duration: .03 }, .8)              // lands on the Fu Jen checkpoint
+      .from('.route__finish', { autoAlpha: 0, y: 30, scale: .96, duration: .1 }, .8)    // degree card appears at graduation
+      .to({}, { duration: .08 });
+    // share progress with the 3D map background (assets/js/roadmap-map.js)
+    window.ISP_ROUTE = window.ISP_ROUTE || { progress: 0 };
+    tl.eventCallback('onUpdate', () => { window.ISP_ROUTE.progress = tl.progress(); });
     return tl;
   };
   mm.add('(min-width: 1024px) and (min-height: 760px)', () => {
