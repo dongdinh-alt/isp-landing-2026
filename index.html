@@ -8,18 +8,15 @@
   <meta name="theme-color" content="#B50713">
   <meta property="og:title" content="ISP – Interdisciplinary Sciences Pathways">
   <meta property="og:description" content="Tư duy liên ngành – Sự nghiệp toàn cầu. Học tại Việt Nam & Đài Loan, tốt nghiệp Đại học Fu Jen.">
-  <meta property="og:image" content="assets/img/hero-kv.jpg">
+  <meta property="og:image" content="assets/img/og-1200x628.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="628">
   <meta property="og:type" content="website">
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Mona+Sans:wdth,wght@75..125,300..900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/bold/style.css">
-  <!-- Light weight: only for the large decorative icons in the wide USP cards -->
-  <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/light/style.css">
-  <link rel="preload" as="image" href="assets/img/hero-kv.jpg" media="(min-width: 768px)">
-  <link rel="preload" as="image" href="assets/img/hero-kv-portrait.jpg" media="(max-width: 767px)">
-  <link rel="stylesheet" href="assets/css/main.css?v=20260930i">
+  <link rel="preload" href="assets/fonts/mona-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/mona-sans-vietnamese.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" as="image" imagesrcset="assets/img/hero-2026-1400.webp 1400w, assets/img/hero-2026-2400.webp 2400w" imagesizes="100vw" media="(min-width: 768px)" fetchpriority="high">
+  <link rel="preload" as="image" imagesrcset="assets/img/hero-2026-m-600.webp 600w, assets/img/hero-2026-m-720.webp 720w, assets/img/hero-2026-m-900.webp 900w, assets/img/hero-2026-m-1200.webp 1200w" imagesizes="100vw" media="(max-width: 767px)" fetchpriority="high">
+  <link rel="stylesheet" href="assets/css/main.min.css?v=67a0da9f">
   <script>
     document.documentElement.classList.add('js');
     setTimeout(function () { if (!window.gsap) document.documentElement.classList.remove('js'); }, 3000);
@@ -64,8 +61,8 @@
         <ul>
           <li><a href="#gioi-thieu" data-nav="gioi-thieu">Giới thiệu</a></li>
           <li><a href="#chuong-trinh" data-nav="chuong-trinh">Chương trình học</a></li>
-          <li><a href="#trai-nghiem" data-nav="trai-nghiem">Trải nghiệm Sinh viên</a></li>
           <li><a href="#tuyen-sinh" data-nav="tuyen-sinh">Học bổng &amp; Tuyển sinh</a></li>
+          <li><a href="#trai-nghiem" data-nav="trai-nghiem">Trải nghiệm Sinh viên</a></li>
         </ul>
         <span class="nav__indicator" aria-hidden="true"></span>
       </nav>
@@ -82,8 +79,8 @@
     <nav aria-label="Menu di động">
       <a href="#gioi-thieu"><small>01</small>Giới thiệu</a>
       <a href="#chuong-trinh"><small>02</small>Chương trình học</a>
-      <a href="#trai-nghiem"><small>03</small>Trải nghiệm Sinh viên</a>
-      <a href="#tuyen-sinh"><small>04</small>Học bổng &amp; Tuyển sinh</a>
+      <a href="#tuyen-sinh"><small>03</small>Học bổng &amp; Tuyển sinh</a>
+      <a href="#trai-nghiem"><small>04</small>Trải nghiệm Sinh viên</a>
     </nav>
     <a class="btn btn--primary btn--lg" href="#dang-ky"><span>Đăng ký tư vấn</span><i class="ph-bold ph-arrow-right" aria-hidden="true"></i></a>
   </div>
@@ -94,32 +91,29 @@
     <section class="hero" id="gioi-thieu" aria-labelledby="hero-title">
       <div class="hero__media" aria-hidden="true">
         <picture>
-          <source media="(max-width: 767px)" srcset="assets/img/hero-kv-portrait.jpg" width="900" height="1193">
-          <img src="assets/img/hero-kv.jpg" alt="" width="2400" height="1133" fetchpriority="high">
+          <source media="(max-width: 767px)" srcset="assets/img/hero-2026-m-600.webp 600w, assets/img/hero-2026-m-720.webp 720w, assets/img/hero-2026-m-900.webp 900w, assets/img/hero-2026-m-1200.webp 1200w" sizes="100vw" width="1200" height="1200">
+          <img src="assets/img/hero-2026-2400.webp" srcset="assets/img/hero-2026-1400.webp 1400w, assets/img/hero-2026-2400.webp 2400w" sizes="100vw" alt="" width="2400" height="1256" fetchpriority="high">
         </picture>
-        <canvas class="hero__orbit"></canvas>
         <div class="hero__veil"></div>
       </div>
 
       <div class="hero__content container">
-        <p class="eyebrow eyebrow--light hero__eyebrow" data-hero>
-          <span class="dot" aria-hidden="true"></span> Tuyển sinh 2026 · Cử nhân Kinh doanh Liên ngành
-        </p>
+        <p class="eyebrow eyebrow--light hero__eyebrow" data-hero lang="en">Interdisciplinary Sciences Pathways</p>
         <h1 class="hero__title" id="hero-title">
-          <span class="line"><span class="split">Interdisciplinary</span></span>
-          <span class="line"><span class="split">Sciences</span> <span class="split">Pathways</span></span>
+          <span class="line"><span class="split">Cử</span> <span class="split">nhân</span> <span class="split">Kinh</span> <span class="split">doanh</span></span>
+          <span class="line"><span class="split">Liên</span> <span class="split">ngành</span></span>
         </h1>
         <p class="hero__lead" data-hero>
-          Cử nhân Kinh doanh Liên ngành thuộc <strong>Viện ISB, Đại học UEH</strong> — đào tạo theo chuẩn quốc tế với lộ trình học tập tại <strong>Việt Nam</strong> và <strong>Đài Loan</strong>, phát triển kiến thức liên ngành và trải nghiệm môi trường quốc tế ngay trong cùng một chương trình.
+          Chương trình thuộc <strong>Viện ISB, Đại học UEH</strong> — đào tạo theo chuẩn quốc tế với lộ trình học tập tại <strong>Việt Nam</strong> và <strong>Đài Loan</strong>, phát triển kiến thức liên ngành và trải nghiệm môi trường quốc tế ngay trong cùng một chương trình.
         </p>
         <p class="hero__tagline" data-hero>
-          <span>Tư duy liên ngành</span>
+          <span>Tư duy <br class="br-m">liên ngành</span>
           <i class="ph-bold ph-arrows-left-right" aria-hidden="true"></i>
-          <span>Sự nghiệp toàn cầu</span>
+          <span>Sự nghiệp <br class="br-m">toàn cầu</span>
         </p>
         <div class="hero__actions" data-hero>
           <a class="btn btn--light btn--lg magnetic" href="#dang-ky"><span>Đăng ký tư vấn</span><i class="ph-bold ph-arrow-right" aria-hidden="true"></i></a>
-          <button class="play-btn" type="button" data-video="D-glvRE28Wc" aria-label="Xem video giới thiệu chương trình ISP">
+          <button class="play-btn" type="button" data-video="D-glvRE28Wc">
             <span class="play-btn__ring" aria-hidden="true"><i class="ph-bold ph-play" aria-hidden="true"></i></span>
             <span class="play-btn__label">Xem video<br><small>Giới thiệu ISP</small></span>
           </button>
@@ -129,9 +123,9 @@
       <div class="hero__ticker" aria-hidden="true">
         <div class="hero__ticker-track">
           <span>UEH.ISB &amp; Fu Jen University</span>
-          <span>100% tiếng Anh</span><span>2 + 2 năm</span><span>Học bổng 30–60%</span><span>Sinh viên từ 20 quốc gia</span>
+          <span>100% tiếng Anh</span><span>2 + 2 năm</span><span>Học bổng 30–60%</span><span>Tốt nghiệp tại Đài Loan</span>
           <span>UEH.ISB &amp; Fu Jen University</span>
-          <span>100% tiếng Anh</span><span>2 + 2 năm</span><span>Học bổng 30–60%</span><span>Sinh viên từ 20 quốc gia</span>
+          <span>100% tiếng Anh</span><span>2 + 2 năm</span><span>Học bổng 30–60%</span><span>Tốt nghiệp tại Đài Loan</span>
         </div>
       </div>
 
@@ -175,101 +169,184 @@
           </article>
 
           <article class="bento__card bento__card--globe bento__card--wide spot" data-tilt>
-            <i class="ph-light ph-globe-hemisphere-east bento__deco" aria-hidden="true"></i>
+            <svg class="bento__deco" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true" focusable="false"><path d="M128,26A102,102,0,1,0,230,128,102.12,102.12,0,0,0,128,26Zm0,12a89.53,89.53,0,0,1,50,15.2V74a2,2,0,0,1-.48,1.31L155.35,101a2,2,0,0,1-1.25.68L122.63,106a2,2,0,0,1-1.44-.36l-.24-.16-19.7-12.89a14,14,0,0,0-19.71,3.64l-21,31.3a13.94,13.94,0,0,0-2.36,7.71L58,171.45a2,2,0,0,1-.9,1.66l-5,3.27A90,90,0,0,1,128,38ZM59.28,186.05l4.43-2.9A14,14,0,0,0,70,171.52l.21-36.23a2.05,2.05,0,0,1,.33-1.1l21-31.3a2,2,0,0,1,1.31-.86,2,2,0,0,1,1.52.35l.24.16,19.7,12.89a13.93,13.93,0,0,0,10,2.44l31.47-4.26a14,14,0,0,0,8.73-4.74l22.17-25.76A14,14,0,0,0,190,74V62.82a89.91,89.91,0,0,1,22.68,95.67l-18.4-16.82a14,14,0,0,0-14.82-2.6L149,151.73a14.11,14.11,0,0,0-8.48,10.89l-2.38,16.19a14,14,0,0,0,10.3,15.58L169.9,200a2.09,2.09,0,0,1,.91.53l4.18,4.18A89.86,89.86,0,0,1,59.28,186.05ZM184.9,197.68l-5.59-5.61a14,14,0,0,0-6.36-3.65l-21.46-5.63a2,2,0,0,1-1.47-2.23l2.39-16.19a2,2,0,0,1,1.21-1.56l30.45-12.66a2,2,0,0,1,2.12.37l21.36,19.54A90.79,90.79,0,0,1,184.9,197.68Z"/></svg>
             <p class="bignum bignum--md"><span class="odo" data-value="20">20</span><span class="bignum__unit">quốc gia</span></p>
             <h3>Mạng lưới sinh viên đa văn hóa</h3>
           </article>
 
           <article class="bento__card bento__card--wide spot" data-tilt>
-            <i class="ph-light ph-intersect-three bento__deco" aria-hidden="true"></i>
+            <svg class="bento__deco" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true" focusable="false"><path d="M193.78,97.13c.13-1.69.22-3.4.22-5.13A66,66,0,0,0,62,92c0,1.73.09,3.44.22,5.13A66,66,0,1,0,128,211.27,66,66,0,1,0,193.78,97.13ZM74,92a54,54,0,0,1,108,0c0,.17,0,.34,0,.51a65.75,65.75,0,0,0-54,8.22,65.75,65.75,0,0,0-54-8.22C74,92.34,74,92.17,74,92Zm72,64a53.88,53.88,0,0,1-18,40.21A53.88,53.88,0,0,1,110,156c0-.17,0-.34,0-.51a65.73,65.73,0,0,0,36,0C146,155.66,146,155.83,146,156Zm-18-10a53.61,53.61,0,0,1-16.5-2.59A54.09,54.09,0,0,1,128,115.79a54.09,54.09,0,0,1,16.5,27.62A53.61,53.61,0,0,1,128,146Zm-27.6-7.61a54.14,54.14,0,0,1-24.9-33.8A53.85,53.85,0,0,1,118,108.71,66.09,66.09,0,0,0,100.4,138.39ZM138,108.71a53.85,53.85,0,0,1,42.53-4.12,54.14,54.14,0,0,1-24.9,33.8A66.09,66.09,0,0,0,138,108.71ZM92,210A54,54,0,0,1,64.4,109.61a66.29,66.29,0,0,0,33.82,41.26c-.13,1.69-.22,3.4-.22,5.13a65.8,65.8,0,0,0,20,47.29A53.64,53.64,0,0,1,92,210Zm72,0a53.64,53.64,0,0,1-26-6.71A65.8,65.8,0,0,0,158,156c0-1.73-.09-3.44-.22-5.13a66.29,66.29,0,0,0,33.82-41.26A54,54,0,0,1,164,210Z"/></svg>
             <h3>Tư duy <strong>liên ngành</strong></h3>
           </article>
 
           <article class="bento__card bento__card--wide spot" data-tilt>
-            <i class="ph-light ph-path bento__deco" aria-hidden="true"></i>
+            <svg class="bento__deco" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true" focusable="false"><path d="M200,170a30.05,30.05,0,0,0-29.4,24H72a34,34,0,0,1,0-68h96a38,38,0,0,0,0-76H72a6,6,0,0,0,0,12h96a26,26,0,0,1,0,52H72a46,46,0,0,0,0,92h98.6A30,30,0,1,0,200,170Zm0,48a18,18,0,1,1,18-18A18,18,0,0,1,200,218Z"/></svg>
             <h3>Cá nhân hóa lộ trình phát triển năng lực toàn cầu</h3>
           </article>
         </div>
       </div>
     </section>
 
-    <!-- ============ 3. ROADMAP ============ -->
-    <section class="section roadmap" id="chuong-trinh" aria-labelledby="roadmap-title">
-      <div class="roadmap__pin">
-        <!-- 3D hex-dot globe background (assets/js/roadmap-map.js) -->
-        <canvas class="roadmap__map" aria-hidden="true"></canvas>
-        <div class="container">
-          <div class="roadmap__head">
-            <div>
-              <p class="eyebrow" data-reveal>Chương trình học</p>
-              <h2 class="h2" id="roadmap-title" data-split>Lộ trình đào tạo</h2>
+    <!-- ============ 3. UNIVERSITIES (start of "Chương trình học"): UEH left, Fu Jen right ============ -->
+    <section class="unis" id="chuong-trinh" aria-label="Hai trường đối tác: Đại học Kinh tế TP.HCM và Đại học Fu Jen">
+      <article class="uni uni--ueh" aria-labelledby="ueh-title">
+        <div class="uni__top">
+          <figure class="uni__photo" aria-hidden="true"><img src="assets/img/ueh-campus-960.webp" srcset="assets/img/ueh-campus-480.webp 480w, assets/img/ueh-campus-960.webp 960w" sizes="(min-width: 1024px) 50vw, 100vw" alt="" loading="lazy" decoding="async" width="960" height="500"></figure>
+          <div class="uni__inner uni__inner--head">
+            <header class="uni__head">
+              <div>
+                <img class="uni__logo" src="assets/logo/ISB.svg" alt="" width="92" height="36" aria-hidden="true">
+                <h2 class="uni__title" id="ueh-title">Đại học Kinh tế TP.HCM (UEH)</h2>
+                <p class="uni__lead">TP. Hồ Chí Minh, Việt Nam · Est. 1976</p>
+              </div>
+              <p class="uni__years"><b><span class="odo" data-value="50">50</span></b><span class="uni__years-label">năm hình thành<br>và phát triển</span></p>
+            </header>
+          </div>
+        </div>
+        <div class="uni__inner uni__inner--ranks">
+          <ul class="rank-grid">
+          <li class="rank spot">
+            <span class="rank__logo"><img src="assets/logo/rank-the.webp" alt="Times Higher Education" width="600" height="200" loading="lazy"></span>
+            <p class="rank__num"><small>Top</small><span class="odo" data-value="101">101</span><span class="rank__dash">–</span><span class="odo" data-value="200">200</span></p>
+            <p class="rank__label"><b class="rank__src">THE Impact Rankings 2026</b>Đại học thế giới đóng góp cho 17 mục tiêu phát triển bền vững</p>
+          </li>
+          <li class="rank spot">
+            <span class="rank__logo"><img src="assets/logo/rank-the.webp" alt="Times Higher Education" width="600" height="200" loading="lazy"></span>
+            <p class="rank__num"><small>Top</small><span class="odo" data-value="250">250</span></p>
+            <p class="rank__label"><b class="rank__src">THE Ranking 2026</b>Đại học tốt nhất châu Á</p>
+          </li>
+          <li class="rank spot">
+            <span class="rank__logo"><img src="assets/logo/rank-qs.svg" alt="QS World University Rankings" width="857" height="266" loading="lazy"></span>
+            <p class="rank__num"><small>Top</small><span class="odo" data-value="301">301</span><span class="rank__dash">+</span></p>
+            <p class="rank__label"><b class="rank__src">QS Asia University Rankings 2026</b>Đại học tốt nhất châu Á</p>
+          </li>
+          <li class="rank spot">
+            <span class="rank__logo rank__logo--text" aria-label="UI GreenMetric">UI<span>GreenMetric</span></span>
+            <p class="rank__num"><small>Top</small><span class="odo" data-value="896">896</span></p>
+            <p class="rank__label"><b class="rank__src">UI GreenMetric Rankings 2025</b>Đại học thế giới; đồng thời Top 5 Đại học Việt Nam</p>
+          </li>
+        </ul>
+        </div>
+      </article>
+      <article class="uni uni--fj" id="fu-jen" aria-labelledby="fujen-title">
+        <div class="uni__top">
+          <figure class="uni__photo" aria-hidden="true"><img src="assets/img/fujen-campus-1600.webp" srcset="assets/img/fujen-campus-600.webp 600w, assets/img/fujen-campus-900.webp 900w, assets/img/fujen-campus-1600.webp 1600w" sizes="(min-width: 1024px) 50vw, 100vw" alt="" loading="lazy" decoding="async" width="1600" height="1066"></figure>
+          <div class="uni__inner uni__inner--head">
+            <header class="uni__head">
+              <div>
+                <img class="uni__logo" src="assets/logo/Fujen.svg" alt="" width="123" height="36" aria-hidden="true">
+                <h2 class="uni__title" id="fujen-title">Đại học Fu Jen</h2>
+                <p class="uni__lead">Tân Bắc, Đài Loan · Est. 1925</p>
+              </div>
+              <p class="uni__years"><b><span class="odo" data-value="100">100</span></b><span class="uni__years-label">năm hình thành<br>và phát triển</span></p>
+            </header>
+          </div>
+        </div>
+        <div class="uni__inner uni__inner--ranks">
+          <ul class="rank-grid">
+          <li class="rank spot">
+            <span class="rank__logo"><img src="assets/logo/rank-the.webp" alt="Times Higher Education World University Rankings" width="600" height="200" loading="lazy"></span>
+            <p class="rank__num"><small>Top</small><span class="odo" data-value="201">201</span><span class="rank__dash">–</span><span class="odo" data-value="300">300</span></p>
+            <p class="rank__label">Xếp hạng ảnh hưởng trên toàn thế giới</p>
+          </li>
+          <li class="rank spot">
+            <span class="rank__logo"><img src="assets/logo/rank-qs.svg" alt="QS World University Rankings" width="857" height="266" loading="lazy"></span>
+            <p class="rank__num"><small>Top</small><span class="odo" data-value="301">301</span><span class="rank__dash">–</span><span class="odo" data-value="350">350</span></p>
+            <p class="rank__label">Xếp hạng Đại học Châu Á</p>
+          </li>
+          <li class="rank spot">
+            <span class="rank__logo"><img src="assets/logo/rank-104.svg" alt="104 Job Bank" width="513" height="241" loading="lazy"></span>
+            <p class="rank__num"><small>Top</small><span class="odo" data-value="10">10</span></p>
+            <p class="rank__label">Chỉ số thương hiệu Đại học Đài Loan</p>
+          </li>
+          <li class="rank spot">
+            <span class="rank__logo"><img src="assets/logo/rank-tcsa.svg" alt="Taiwan Corporate Sustainability Awards (TCSA)" width="780" height="215" loading="lazy"></span>
+            <p class="rank__num"><span class="scramble" data-text="APSAA">APSAA</span></p>
+            <p class="rank__label">Giải thưởng phát triển bền vững châu Á – Thái Bình Dương</p>
+          </li>
+        </ul>
+        </div>
+      </article>
+    </section>
+
+    <!-- ============ 4. ROADMAP ============ -->
+    <section class="section roadmap" id="lo-trinh" aria-labelledby="roadmap-title">
+      <div class="container">
+        <div class="roadmap__head">
+          <div>
+            <p class="eyebrow" data-reveal>Chương trình học</p>
+            <h2 class="h2" id="roadmap-title" data-split>Lộ trình đào tạo</h2>
+          </div>
+          <ul class="roadmap__stats">
+            <li><b>4</b><span>năm</span></li>
+            <li><b>2</b><span>quốc gia</span></li>
+            <li><b>1</b><span>bằng cử nhân</span></li>
+          </ul>
+        </div>
+
+        <div class="route">
+          <!-- static timeline: one column per card below (phase 1 · phase 2 · degree) -->
+          <div class="route__track" aria-hidden="true">
+            <div class="route__seg route__seg--vn">
+              <span class="route__tick" style="--p:25%"><b>Năm 1</b></span>
+              <span class="route__tick" style="--p:75%"><b>Năm 2</b></span>
             </div>
-            <p class="roadmap__sum" aria-label="2 năm cộng 2 năm bằng 4 năm">
-              <span class="roadmap__sum-n">2</span><span class="roadmap__sum-op">+</span><span class="roadmap__sum-n">2</span><span class="roadmap__sum-op">=</span><span class="roadmap__sum-n roadmap__sum-n--red">4</span><span class="roadmap__sum-label">năm<br>2 quốc gia</span>
-            </p>
+            <div class="route__seg route__seg--tw">
+              <span class="route__tick" style="--p:25%"><b>Năm 3</b></span>
+              <span class="route__tick" style="--p:75%"><b>Năm 4</b></span>
+            </div>
+            <div class="route__seg route__seg--grad">
+              <span class="route__cap"><i class="ph-bold ph-graduation-cap"></i><b>Tốt nghiệp</b></span>
+            </div>
           </div>
 
-          <div class="route">
-            <div class="route__track" aria-hidden="true">
-              <div class="route__fill"></div>
-              <span class="route__tick" style="--p:0%" data-at="0"><b>Năm 1</b></span>
-              <span class="route__tick" style="--p:16%" data-at=".16"><b>Năm 2</b></span>
-              <span class="route__tick route__tick--fly" style="--p:33.3%" data-at=".333"><i class="ph-bold ph-airplane-tilt"></i></span>
-              <span class="route__tick" style="--p:50%" data-at=".5"><b>Năm 3</b></span>
-              <span class="route__tick" style="--p:66%" data-at=".66"><b>Năm 4</b></span>
-              <!-- final checkpoint: graduation at Fu Jen — reveals the degree block -->
-              <span class="route__tick route__tick--grad" style="--p:100%" data-at="1"><img src="assets/logo/fujen-symbol.svg" alt="" width="159" height="159"><b>Tốt nghiệp</b></span>
-              <span class="route__plane"><i class="ph-bold ph-airplane"></i></span>
-            </div>
+          <div class="route__phases">
+            <article class="phase phase--vn">
+              <header class="phase__head">
+                <p class="phase__stage">Giai đoạn 01</p>
+                <p class="phase__years"><span class="odo" data-value="2">2</span> năm</p>
+              </header>
+              <h3 class="phase__place"><svg class="flag" aria-hidden="true"><use href="#flag-vn"/></svg> TP. Hồ Chí Minh — Việt Nam</h3>
+              <p class="phase__school">Viện ISB, Đại học UEH</p>
+              <p class="phase__desc">Xây dựng nền tảng tri thức, phát triển tư duy toàn diện và năng lực tự học.</p>
+              <ol class="blocks">
+                <li class="block"><span class="block__i">01</span>Khối kiến thức giáo dục toàn diện</li>
+                <li class="block"><span class="block__i">02</span>Khối kiến thức nền tảng kinh doanh, phân tích và nghiên cứu</li>
+              </ol>
+            </article>
 
-            <div class="route__phases">
-              <article class="phase phase--vn">
-                <header class="phase__head">
-                  <p class="phase__stage">Giai đoạn 01</p>
-                  <p class="phase__years"><span class="odo" data-value="2">2</span> năm</p>
-                </header>
-                <h3 class="phase__place"><svg class="flag" aria-hidden="true"><use href="#flag-vn"/></svg> TP. Hồ Chí Minh — Việt Nam</h3>
-                <p class="phase__school">Viện ISB, Đại học UEH</p>
-                <p class="phase__desc">Xây dựng nền tảng tri thức, phát triển tư duy toàn diện và năng lực tự học.</p>
-                <ol class="blocks">
-                  <li class="block"><span class="block__i">01</span>Khối kiến thức giáo dục toàn diện</li>
-                  <li class="block"><span class="block__i">02</span>Khối kiến thức nền tảng kinh doanh, phân tích và nghiên cứu</li>
-                </ol>
-              </article>
-
-              <article class="phase phase--tw">
-                <div class="phase__main">
-                <header class="phase__head">
-                  <p class="phase__stage">Giai đoạn 02</p>
-                  <p class="phase__years"><span class="odo" data-value="2">2</span> năm</p>
-                </header>
-                <h3 class="phase__place"><svg class="flag" aria-hidden="true"><use href="#flag-tw"/></svg> TP. Tân Bắc — Đài Loan</h3>
-                <p class="phase__school">Đại học Fu Jen</p>
-                <p class="phase__desc">Học chuyên sâu trong môi trường quốc tế với nền tảng liên ngành về quản trị, công nghệ, nghiên cứu và phát triển bền vững.</p>
-                <ol class="blocks blocks--2col">
-                  <li class="block"><span class="block__i">03</span>Khối kiến thức nền tảng kinh doanh, phân tích và nghiên cứu nâng cao</li>
-                  <li class="block"><span class="block__i">04</span>Khối kiến thức liên ngành bắt buộc</li>
-                  <li class="block"><span class="block__i">05</span>Khối kiến thức liên ngành chuyên sâu</li>
-                  <li class="block"><span class="block__i">06</span>Khối kiến thức liên ngành tự chọn</li>
-                </ol>
-                </div>
-                <div class="route__finish">
-                  <img class="route__finish-seal" src="assets/logo/fujen-symbol.svg" alt="" width="159" height="159" aria-hidden="true">
-                  <i class="ph-bold ph-certificate" aria-hidden="true"></i>
-                  <p><strong>Bachelor’s Program in Interdisciplinary Studies</strong>Bằng cử nhân do Đại học Fu Jen (Đài Loan) cấp</p>
-                </div>
-              </article>
-            </div>
-
+            <article class="phase phase--tw">
+              <div class="phase__main">
+              <header class="phase__head">
+                <p class="phase__stage">Giai đoạn 02</p>
+                <p class="phase__years"><span class="odo" data-value="2">2</span> năm</p>
+              </header>
+              <h3 class="phase__place"><svg class="flag" aria-hidden="true"><use href="#flag-tw"/></svg> TP. Tân Bắc — Đài Loan</h3>
+              <p class="phase__school">Đại học Fu Jen</p>
+              <p class="phase__desc">Học chuyên sâu trong môi trường quốc tế với nền tảng liên ngành về quản trị, công nghệ, nghiên cứu và phát triển bền vững.</p>
+              <ol class="blocks blocks--2col">
+                <li class="block"><span class="block__i">03</span>Khối kiến thức nền tảng kinh doanh, phân tích và nghiên cứu nâng cao</li>
+                <li class="block"><span class="block__i">04</span>Khối kiến thức liên ngành bắt buộc</li>
+                <li class="block"><span class="block__i">05</span>Khối kiến thức liên ngành chuyên sâu</li>
+                <li class="block"><span class="block__i">06</span>Khối kiến thức liên ngành tự chọn</li>
+              </ol>
+              </div>
+              <div class="route__finish">
+                <img class="route__finish-seal" src="assets/logo/fujen-symbol.svg" alt="" width="159" height="159" aria-hidden="true">
+                <i class="ph-bold ph-certificate" aria-hidden="true"></i>
+                <p><strong>Bachelor’s Program in Interdisciplinary Studies</strong>Bằng cử nhân do Đại học Fu Jen (Đài Loan) cấp</p>
+              </div>
+            </article>
           </div>
+
         </div>
       </div>
     </section>
 
-    <!-- ============ 4. MAJORS ============ -->
+    <!-- ============ 5. MAJORS ============ -->
     <section class="section majors" id="chuyen-nganh" aria-labelledby="majors-title">
       <div class="container">
-        <div class="section-head section-head--split">
+        <div class="section-head section-head--center majors__head">
           <div>
             <p class="eyebrow" data-reveal>Chuyên ngành đào tạo</p>
             <h2 class="h2" id="majors-title" data-split>Chọn <em>2 trong 4</em> lĩnh vực — lộ trình của riêng bạn</h2>
@@ -280,55 +357,55 @@
         <div class="majors__grid">
           <div class="majors__explorer" data-reveal>
             <div class="tabs" role="tablist" aria-label="Chuyên ngành">
-              <button class="tab is-active" role="tab" id="tab-gm" aria-controls="panel-gm" aria-selected="true" data-major="gm"><i class="ph-bold ph-briefcase" aria-hidden="true"></i>Quản trị Toàn cầu</button>
-              <button class="tab" role="tab" id="tab-gt" aria-controls="panel-gt" aria-selected="false" tabindex="-1" data-major="gt"><i class="ph-bold ph-cpu" aria-hidden="true"></i>Công nghệ Toàn cầu</button>
-              <button class="tab" role="tab" id="tab-gs" aria-controls="panel-gs" aria-selected="false" tabindex="-1" data-major="gs"><i class="ph-bold ph-leaf" aria-hidden="true"></i>Phát triển bền vững Toàn cầu</button>
-              <button class="tab" role="tab" id="tab-gst" aria-controls="panel-gst" aria-selected="false" tabindex="-1" data-major="gst"><i class="ph-bold ph-globe-stand" aria-hidden="true"></i>Nghiên cứu Toàn cầu</button>
+              <button class="tab is-active" role="tab" id="tab-gm" aria-controls="panel-gm" aria-selected="true" data-major="gm">Quản trị Toàn cầu</button>
+              <button class="tab" role="tab" id="tab-gt" aria-controls="panel-gt" aria-selected="false" tabindex="-1" data-major="gt">Công nghệ Toàn cầu</button>
+              <button class="tab" role="tab" id="tab-gs" aria-controls="panel-gs" aria-selected="false" tabindex="-1" data-major="gs">Phát triển bền vững Toàn cầu</button>
+              <button class="tab" role="tab" id="tab-gst" aria-controls="panel-gst" aria-selected="false" tabindex="-1" data-major="gst">Nghiên cứu Toàn cầu</button>
               <span class="tabs__ink" aria-hidden="true"></span>
             </div>
 
             <div class="panels">
               <article class="panel is-active" role="tabpanel" id="panel-gm" aria-labelledby="tab-gm" data-major="gm">
-                <figure class="panel__media"><img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=1200&q=75&auto=format&fit=crop" alt="Nhóm sinh viên thảo luận chiến lược kinh doanh" loading="lazy" width="1200" height="800"></figure>
+                <figure class="panel__media"><img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=1000&q=70&auto=format&fit=crop" srcset="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=600&q=70&auto=format&fit=crop 600w, https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=1000&q=70&auto=format&fit=crop 1000w" sizes="(min-width: 1024px) 55vw, 100vw" alt="Nhóm sinh viên thảo luận chiến lược kinh doanh" loading="lazy" width="1200" height="800"><span class="panel__badge"><i class="ph-bold ph-check-circle" aria-hidden="true"></i> Đã thêm vào lộ trình</span></figure>
                 <div class="panel__body">
-                  <p class="panel__en">Global Management</p>
-                  <h3 class="panel__title">Quản trị Toàn cầu</h3>
+                  <div class="panel__head"><div class="panel__name"><p class="panel__en">Global Management</p><h3 class="panel__title">Quản trị Toàn cầu</h3></div><button class="pick-btn" type="button" data-pick="gm" aria-pressed="false"><i class="ph-bold ph-plus" aria-hidden="true"></i><span>Thêm vào lộ trình</span></button></div>
                   <p>Tập trung vào quản trị doanh nghiệp trong bối cảnh toàn cầu hóa, kết hợp chiến lược kinh doanh quốc tế, quản trị đa văn hóa, tài chính và marketing toàn cầu với tư duy lãnh đạo và năng lực ra quyết định.</p>
-                  <button class="pick-btn" type="button" data-pick="gm" aria-pressed="false"><i class="ph-bold ph-plus" aria-hidden="true"></i><span>Thêm vào lộ trình</span></button>
                 </div>
               </article>
               <article class="panel" role="tabpanel" id="panel-gt" aria-labelledby="tab-gt" data-major="gt" hidden>
-                <figure class="panel__media"><img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&q=75&auto=format&fit=crop" alt="Bảng phân tích dữ liệu trên màn hình máy tính" loading="lazy" width="1200" height="800"></figure>
+                <figure class="panel__media"><img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1000&q=70&auto=format&fit=crop" srcset="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&q=70&auto=format&fit=crop 600w, https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1000&q=70&auto=format&fit=crop 1000w" sizes="(min-width: 1024px) 55vw, 100vw" alt="Bảng phân tích dữ liệu trên màn hình máy tính" loading="lazy" width="1200" height="800"><span class="panel__badge"><i class="ph-bold ph-check-circle" aria-hidden="true"></i> Đã thêm vào lộ trình</span></figure>
                 <div class="panel__body">
-                  <p class="panel__en">Global Technology</p>
-                  <h3 class="panel__title">Công nghệ Toàn cầu</h3>
+                  <div class="panel__head"><div class="panel__name"><p class="panel__en">Global Technology</p><h3 class="panel__title">Công nghệ Toàn cầu</h3></div><button class="pick-btn" type="button" data-pick="gt" aria-pressed="false"><i class="ph-bold ph-plus" aria-hidden="true"></i><span>Thêm vào lộ trình</span></button></div>
                   <p>Kết hợp kiến thức công nghệ với ứng dụng trong môi trường kinh doanh và xã hội toàn cầu, bao gồm trí tuệ nhân tạo, chuyển đổi số, phân tích dữ liệu.</p>
-                  <button class="pick-btn" type="button" data-pick="gt" aria-pressed="false"><i class="ph-bold ph-plus" aria-hidden="true"></i><span>Thêm vào lộ trình</span></button>
                 </div>
               </article>
               <article class="panel" role="tabpanel" id="panel-gs" aria-labelledby="tab-gs" data-major="gs" hidden>
-                <figure class="panel__media"><img src="https://images.unsplash.com/photo-1511546705877-f449b6f6dcfd?w=1200&q=75&auto=format&fit=crop" alt="Tua-bin gió – năng lượng tái tạo" loading="lazy" width="1200" height="800"></figure>
+                <figure class="panel__media"><img src="https://images.unsplash.com/photo-1511546705877-f449b6f6dcfd?w=1000&q=70&auto=format&fit=crop" srcset="https://images.unsplash.com/photo-1511546705877-f449b6f6dcfd?w=600&q=70&auto=format&fit=crop 600w, https://images.unsplash.com/photo-1511546705877-f449b6f6dcfd?w=1000&q=70&auto=format&fit=crop 1000w" sizes="(min-width: 1024px) 55vw, 100vw" alt="Tua-bin gió – năng lượng tái tạo" loading="lazy" width="1200" height="800"><span class="panel__badge"><i class="ph-bold ph-check-circle" aria-hidden="true"></i> Đã thêm vào lộ trình</span></figure>
                 <div class="panel__body">
-                  <p class="panel__en">Global Sustainability</p>
-                  <h3 class="panel__title">Phát triển bền vững Toàn cầu</h3>
+                  <div class="panel__head"><div class="panel__name"><p class="panel__en">Global Sustainability</p><h3 class="panel__title">Phát triển bền vững Toàn cầu</h3></div><button class="pick-btn" type="button" data-pick="gs" aria-pressed="false"><i class="ph-bold ph-plus" aria-hidden="true"></i><span>Thêm vào lộ trình</span></button></div>
                   <p>Cung cấp kiến thức về phát triển bền vững, quản trị ESG, kinh tế xanh và chính sách môi trường, với trọng tâm cân bằng giữa tăng trưởng kinh tế, trách nhiệm xã hội và bảo vệ môi trường.</p>
-                  <button class="pick-btn" type="button" data-pick="gs" aria-pressed="false"><i class="ph-bold ph-plus" aria-hidden="true"></i><span>Thêm vào lộ trình</span></button>
                 </div>
               </article>
               <article class="panel" role="tabpanel" id="panel-gst" aria-labelledby="tab-gst" data-major="gst" hidden>
-                <figure class="panel__media"><img src="https://images.unsplash.com/photo-1590274853856-f22d5ee3d228?w=1200&q=75&auto=format&fit=crop" alt="Hàng cờ các quốc gia trước tòa nhà quốc tế" loading="lazy" width="1200" height="800"></figure>
+                <figure class="panel__media"><img src="https://images.unsplash.com/photo-1590274853856-f22d5ee3d228?w=1000&q=70&auto=format&fit=crop" srcset="https://images.unsplash.com/photo-1590274853856-f22d5ee3d228?w=600&q=70&auto=format&fit=crop 600w, https://images.unsplash.com/photo-1590274853856-f22d5ee3d228?w=1000&q=70&auto=format&fit=crop 1000w" sizes="(min-width: 1024px) 55vw, 100vw" alt="Hàng cờ các quốc gia trước tòa nhà quốc tế" loading="lazy" width="1200" height="800"><span class="panel__badge"><i class="ph-bold ph-check-circle" aria-hidden="true"></i> Đã thêm vào lộ trình</span></figure>
                 <div class="panel__body">
-                  <p class="panel__en">Global Studies</p>
-                  <h3 class="panel__title">Nghiên cứu Toàn cầu</h3>
+                  <div class="panel__head"><div class="panel__name"><p class="panel__en">Global Studies</p><h3 class="panel__title">Nghiên cứu Toàn cầu</h3></div><button class="pick-btn" type="button" data-pick="gst" aria-pressed="false"><i class="ph-bold ph-plus" aria-hidden="true"></i><span>Thêm vào lộ trình</span></button></div>
                   <p>Tiếp cận các vấn đề toàn cầu như kinh tế quốc tế, văn hóa, nghệ thuật và quan hệ quốc tế, cùng năng lực tư duy phản biện và phân tích chính sách.</p>
-                  <button class="pick-btn" type="button" data-pick="gst" aria-pressed="false"><i class="ph-bold ph-plus" aria-hidden="true"></i><span>Thêm vào lộ trình</span></button>
                 </div>
               </article>
+            </div>
+            <!-- mobile only: slider position dots for .panels -->
+            <div class="swipe-hint">
+              <div class="swipe-hint__dots">
+                <button class="swipe-hint__dot is-active" type="button" data-slide="0" aria-label="Xem Quản trị Toàn cầu"></button>
+                <button class="swipe-hint__dot" type="button" data-slide="1" aria-label="Xem Công nghệ Toàn cầu"></button>
+                <button class="swipe-hint__dot" type="button" data-slide="2" aria-label="Xem Phát triển bền vững Toàn cầu"></button>
+                <button class="swipe-hint__dot" type="button" data-slide="3" aria-label="Xem Nghiên cứu Toàn cầu"></button>
+              </div>
             </div>
           </div>
 
           <aside class="builder" aria-labelledby="builder-title" data-reveal>
-            <p class="builder__eyebrow"><i class="ph-bold ph-magic-wand" aria-hidden="true"></i> Thử ngay</p>
             <h3 class="builder__title" id="builder-title">Xây lộ trình liên ngành của bạn</h3>
             <svg class="venn" viewBox="0 0 400 252" role="img" aria-label="Sơ đồ kết hợp: Nền tảng Kinh doanh và hai lĩnh vực đã chọn">
               <circle class="venn__c venn__c--base" cx="200" cy="146" r="62"/>
@@ -352,11 +429,10 @@
         </div>
 
         <div class="careers">
-          <div class="careers__head" data-reveal>
-            <h3 class="h3">Triển vọng nghề nghiệp</h3>
+          <h3 class="careers__title" data-reveal>Triển vọng nghề nghiệp</h3>
+          <div class="careers__panel">
             <p class="degree-badge"><i class="ph-bold ph-certificate" aria-hidden="true"></i> Tốt nghiệp tại Đại học Fu Jen — Bằng “Bachelor’s Program in Interdisciplinary Studies”</p>
-          </div>
-          <ul class="careers__list">
+            <ul class="careers__list">
             <li class="career"><i class="ph-bold ph-lightbulb-filament" aria-hidden="true"></i>Quản trị doanh nghiệp &amp; Đổi mới sáng tạo</li>
             <li class="career"><i class="ph-bold ph-plant" aria-hidden="true"></i>Phát triển bền vững &amp; Quản trị ESG</li>
             <li class="career"><i class="ph-bold ph-strategy" aria-hidden="true"></i>Tư vấn chiến lược kinh doanh</li>
@@ -364,47 +440,110 @@
             <li class="career"><i class="ph-bold ph-chart-line-up" aria-hidden="true"></i>Nghiên cứu &amp; Phân tích chính sách</li>
             <li class="career"><i class="ph-bold ph-rocket-launch" aria-hidden="true"></i>Khởi nghiệp (Startup)</li>
           </ul>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- ============ 5. FU JEN ============ -->
-    <section class="fujen" id="fu-jen" aria-labelledby="fujen-title">
-      <div class="fujen__bg" aria-hidden="true"><img src="assets/img/fujen-campus.jpg" alt="" loading="lazy" width="1600" height="1066"></div>
-      <div class="container fujen__inner">
-        <div class="fujen__intro">
-          <img class="fujen__logo" src="assets/logo/Fujen.svg" alt="" width="123" height="36" aria-hidden="true">
-          <h2 class="h2 h2--light" id="fujen-title" data-split>Đại học Fu Jen</h2>
-          <p class="fujen__lead" data-reveal>Tân Bắc, Đài Loan · Est. 1925</p>
+    <!-- ============ 8. ADMISSION ============ -->
+    <section class="section admission" id="tuyen-sinh" aria-labelledby="adm-title">
+      <div class="container admission__grid">
+        <div class="admission__media" data-reveal>
+          <div class="admission__img"><img src="assets/img/admission-students-1200.webp" srcset="assets/img/admission-students-700.webp 700w, assets/img/admission-students-1200.webp 1200w" sizes="(min-width: 1024px) 45vw, 100vw" alt="Sinh viên quốc tế tại khuôn viên Đại học Fu Jen" loading="lazy" decoding="async" width="1200" height="1092"></div>
         </div>
 
-        <div class="fujen__century">
-          <p class="mega" aria-label="100 năm"><span class="odo" data-value="100">100</span></p>
-          <p class="fujen__century-label">năm hình thành và phát triển</p>
+        <div class="admission__content">
+          <p class="eyebrow" data-reveal>Học bổng &amp; Tuyển sinh</p>
+          <h2 class="h2" id="adm-title" data-split>Điều kiện tuyển sinh</h2>
+
+          <h3 class="h4" data-reveal><i class="ph-bold ph-books" aria-hidden="true"></i> Điều kiện học thuật <span class="muted">— đáp ứng một trong các phương thức</span></h3>
+          <ol class="methods">
+            <li class="method"><span class="method__n">01</span><p>Đạt điểm chuẩn xét tuyển dựa trên kết quả học tập bậc THPT <mark>(GPA từ 7.5 trở lên)</mark></p></li>
+            <li class="method"><span class="method__n">02</span><p>Đạt điểm chuẩn xét tuyển dựa trên kết quả kỳ thi tốt nghiệp THPT</p></li>
+            <li class="method"><span class="method__n">03</span><p>Đạt điểm chuẩn xét tuyển dựa trên kết quả thi đánh giá năng lực do Đại học Quốc gia Hà Nội và TP. HCM tổ chức</p></li>
+            <li class="method"><span class="method__n">04</span><p>Chuyển tiếp từ các trường đại học trong và ngoài nước (xét theo trường hợp cụ thể)</p></li>
+          </ol>
+
+          <h3 class="h4" data-reveal><i class="ph-bold ph-chats-circle" aria-hidden="true"></i> Điều kiện tiếng Anh</h3>
+          <p class="english" data-reveal><strong>IELTS Academic 6.0</strong> trở lên <span class="muted">(điểm kỹ năng &gt; 5.0)</span></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 9. SCHOLARSHIP ============ -->
+    <section class="section scholar" id="hoc-bong" aria-labelledby="scholar-title">
+      <div class="scholar__glow" aria-hidden="true"></div>
+      <div class="container">
+        <div class="section-head section-head--split">
+          <div>
+            <p class="eyebrow eyebrow--light" data-reveal>Các suất học bổng</p>
+            <h2 class="h2 h2--light" id="scholar-title" data-split>ISP’s Talent Scholarship</h2>
+          </div>
+          <p class="lead lead--light" data-reveal>Mức học bổng từ <strong>30% đến 60% học phí</strong>, dựa trên năng lực học thuật và trình độ ngoại ngữ.</p>
         </div>
 
-        <ul class="rank-grid">
-          <li class="rank spot">
-            <span class="rank__logo"><img src="assets/logo/rank-the.png" alt="Times Higher Education World University Rankings" width="600" height="200" loading="lazy"></span>
-            <p class="rank__num"><small>Top</small><span class="odo" data-value="201">201</span><span class="rank__dash">–</span><span class="odo" data-value="300">300</span></p>
-            <p class="rank__label">Xếp hạng ảnh hưởng trên toàn thế giới</p>
-          </li>
-          <li class="rank spot">
-            <span class="rank__logo"><img src="assets/logo/rank-qs.svg" alt="QS World University Rankings" width="857" height="266" loading="lazy"></span>
-            <p class="rank__num"><small>Top</small><span class="odo" data-value="301">301</span><span class="rank__dash">–</span><span class="odo" data-value="350">350</span></p>
-            <p class="rank__label">Xếp hạng Đại học Châu Á</p>
-          </li>
-          <li class="rank spot">
-            <span class="rank__logo"><img src="assets/logo/rank-104.svg" alt="104 Job Bank" width="513" height="241" loading="lazy"></span>
-            <p class="rank__num"><small>Top</small><span class="odo" data-value="10">10</span></p>
-            <p class="rank__label">Chỉ số thương hiệu Đại học Đài Loan</p>
-          </li>
-          <li class="rank spot">
-            <span class="rank__logo"><img src="assets/logo/rank-tcsa.svg" alt="Taiwan Corporate Sustainability Awards (TCSA)" width="780" height="215" loading="lazy"></span>
-            <p class="rank__num"><span class="scramble" data-text="APSAA">APSAA</span></p>
-            <p class="rank__label">Giải thưởng phát triển bền vững châu Á – Thái Bình Dương</p>
-          </li>
-        </ul>
+
+        <div class="scholar__grid">
+          <div class="scholar__left">
+          <form class="checker" aria-labelledby="checker-title" onsubmit="return false">
+            <div class="checker__head">
+              <i class="ph-bold ph-calculator" aria-hidden="true"></i>
+              <div>
+                <h3 id="checker-title">Ước tính học bổng của bạn</h3>
+                <p>Kéo điểm GPA và chọn IELTS để xem mức học bổng dự kiến.</p>
+              </div>
+            </div>
+            <div class="checker__row">
+              <label class="checker__field">
+                <span>GPA lớp 12: <output id="gpa-out">8.5</output></span>
+                <input type="range" id="gpa" min="7" max="10" step="0.1" value="8.5">
+              </label>
+              <fieldset class="checker__field">
+                <legend>IELTS Academic</legend>
+                <div class="chips" id="ielts-chips">
+                  <label><input type="radio" name="ielts" value="5.5"><span>&lt; 6.0</span></label>
+                  <label><input type="radio" name="ielts" value="6.0"><span>6.0</span></label>
+                  <label><input type="radio" name="ielts" value="6.5"><span>6.5</span></label>
+                  <label><input type="radio" name="ielts" value="7.0" checked><span>7.0</span></label>
+                  <label><input type="radio" name="ielts" value="7.5"><span>7.5+</span></label>
+                </div>
+              </fieldset>
+            </div>
+            <p class="checker__result" id="checker-result" aria-live="polite"></p>
+          </form>
+          <div class="stairs" role="tablist" aria-label="Các mức học bổng">
+            <button class="stair" role="tab" aria-selected="false" data-level="30" style="--h:.42"><span class="stair__pct"><span class="odo" data-value="30">30</span><sup>%</sup></span><span class="stair__name">Emerging<br>Talent</span></button>
+            <button class="stair" role="tab" aria-selected="false" data-level="40" style="--h:.61"><span class="stair__pct"><span class="odo" data-value="40">40</span><sup>%</sup></span><span class="stair__name">Outstanding<br>Talent</span></button>
+            <button class="stair" role="tab" aria-selected="false" data-level="50" style="--h:.8"><span class="stair__pct"><span class="odo" data-value="50">50</span><sup>%</sup></span><span class="stair__name">Premier<br>Talent</span></button>
+            <button class="stair is-active" role="tab" aria-selected="true" data-level="60" style="--h:1"><span class="stair__pct"><span class="odo" data-value="60">60</span><sup>%</sup></span><span class="stair__name">Elite<br>Talent</span></button>
+          </div>
+
+          </div>
+
+          <div class="criteria" aria-live="polite">
+            <p class="criteria__pct"><span data-c="pct">60</span><sup>%</sup> <small>học phí</small></p>
+            <h3 class="criteria__name" data-c="name">Elite Talent</h3>
+            <div class="criteria__opts">
+              <div class="opt">
+                <p class="opt__label">Điều kiện A</p>
+                <div class="opt__grid">
+                  <div class="opt__cell"><span class="opt__k"><i class="ph-bold ph-exam" aria-hidden="true"></i> GPA lớp 12</span><b class="opt__v" data-c="a-gpa">8.5</b><span class="opt__s">trở lên</span></div>
+                  <div class="opt__cell"><span class="opt__k"><i class="ph-bold ph-certificate" aria-hidden="true"></i> IELTS Academic</span><b class="opt__v" data-c="a-ielts">7.0</b><span class="opt__s">hoặc tương đương</span></div>
+                </div>
+              </div>
+              <p class="opt__or">hoặc</p>
+              <div class="opt">
+                <p class="opt__label">Điều kiện B</p>
+                <div class="opt__grid">
+                  <div class="opt__cell"><span class="opt__k"><i class="ph-bold ph-exam" aria-hidden="true"></i> GPA lớp 12</span><b class="opt__v" data-c="b-gpa">8.0</b><span class="opt__s">trở lên</span></div>
+                  <div class="opt__cell"><span class="opt__k"><i class="ph-bold ph-certificate" aria-hidden="true"></i> IELTS Academic</span><b class="opt__v" data-c="b-ielts">7.5</b><span class="opt__s">hoặc tương đương</span></div>
+                </div>
+              </div>
+            </div>
+            <a class="btn btn--primary btn--block criteria__cta magnetic" href="#dang-ky"><span>Đăng ký tư vấn</span><i class="ph-bold ph-arrow-right" aria-hidden="true"></i></a>
+          </div>
+        </div>
+
       </div>
     </section>
 
@@ -418,19 +557,19 @@
 
         <div class="testi-grid">
           <figure class="testi" data-tilt>
-            <div class="testi__photo"><img src="assets/img/testi/1.jpg" alt="Đặng Thái Tuấn – sinh viên ISP" loading="lazy" width="880" height="1100"></div>
+            <div class="testi__photo"><img src="assets/img/testi/1.webp" decoding="async" alt="Đặng Thái Tuấn – sinh viên ISP" loading="lazy" width="880" height="1100"></div>
             <div class="testi__gpa"><small>GPA</small><span class="odo" data-value="9.2">9.2</span></div>
             <blockquote>Khi chọn ISP, em mong được kết nối quốc tế, học hỏi từ những người cùng định hướng và tạo ra những tác động ý nghĩa trên hành trình của mình.</blockquote>
             <figcaption><strong>Đặng Thái Tuấn</strong><span>ISP Student · Class of 2026</span></figcaption>
           </figure>
           <figure class="testi testi--mid" data-tilt>
-            <div class="testi__photo"><img src="assets/img/testi/2.jpg" alt="Đinh Xuân Quỳnh – sinh viên ISP" loading="lazy" width="880" height="1100"></div>
+            <div class="testi__photo"><img src="assets/img/testi/2.webp" decoding="async" alt="Đinh Xuân Quỳnh – sinh viên ISP" loading="lazy" width="880" height="1100"></div>
             <div class="testi__gpa"><small>GPA</small><span class="odo" data-value="8.8">8.8</span></div>
             <blockquote>Em chọn ISP để mở rộng trải nghiệm, kết nối và tìm thấy một phiên bản tự tin, cởi mở hơn qua hành trình du học Đài Loan.</blockquote>
             <figcaption><strong>Đinh Xuân Quỳnh</strong><span>ISP Student · Class of 2026</span></figcaption>
           </figure>
           <figure class="testi" data-tilt>
-            <div class="testi__photo"><img src="assets/img/testi/3.jpg" alt="Huỳnh Thị Tố Uyên – sinh viên ISP" loading="lazy" width="880" height="1100"></div>
+            <div class="testi__photo"><img src="assets/img/testi/3.webp" decoding="async" alt="Huỳnh Thị Tố Uyên – sinh viên ISP" loading="lazy" width="880" height="1100"></div>
             <div class="testi__gpa"><small>GPA</small><span class="odo" data-value="8.7">8.7</span></div>
             <blockquote>Em chọn ISP để phát triển bản thân, học hỏi từ những thầy cô giàu kinh nghiệm và mở rộng kết nối quốc tế qua hành trình đến Đài Loan.</blockquote>
             <figcaption><strong>Huỳnh Thị Tố Uyên</strong><span>ISP Student · Class of 2026</span></figcaption>
@@ -471,114 +610,17 @@
 
       <div class="belt" aria-label="Hình ảnh hoạt động sinh viên">
         <div class="belt__track">
-          <figure class="belt__item"><img src="assets/img/life/isb-1.jpg" alt="Hoạt động sinh viên UEH.ISB" loading="lazy"><figcaption>UEH.ISB</figcaption></figure>
-          <figure class="belt__item"><img src="assets/img/life/fjcu-choir.jpg" alt="Dàn hợp xướng Fu Jen" loading="lazy"><figcaption>Fu Jen</figcaption></figure>
-          <figure class="belt__item"><img src="assets/img/life/isb-2.jpg" alt="Hoạt động sinh viên UEH.ISB" loading="lazy"><figcaption>UEH.ISB</figcaption></figure>
-          <figure class="belt__item"><img src="assets/img/life/fjcu-volley.jpg" alt="Bóng chuyền tại Fu Jen" loading="lazy"><figcaption>Fu Jen</figcaption></figure>
-          <figure class="belt__item"><img src="assets/img/life/isb-3.jpg" alt="Hoạt động sinh viên UEH.ISB" loading="lazy"><figcaption>UEH.ISB</figcaption></figure>
-          <figure class="belt__item"><img src="assets/img/life/fjcu-fire.jpg" alt="Múa lửa tại Fu Jen" loading="lazy"><figcaption>Fu Jen</figcaption></figure>
-          <figure class="belt__item"><img src="assets/img/life/isb-4.jpg" alt="Hoạt động sinh viên UEH.ISB" loading="lazy"><figcaption>UEH.ISB</figcaption></figure>
-          <figure class="belt__item"><img src="assets/img/life/fjcu-picnic.jpg" alt="Dã ngoại cùng sinh viên Fu Jen" loading="lazy"><figcaption>Fu Jen</figcaption></figure>
-          <figure class="belt__item"><img src="assets/img/life/isb-5.jpg" alt="Hoạt động sinh viên UEH.ISB" loading="lazy"><figcaption>UEH.ISB</figcaption></figure>
-          <figure class="belt__item"><img src="assets/img/life/fjcu-run.jpg" alt="Giải chạy tại Fu Jen" loading="lazy"><figcaption>Fu Jen</figcaption></figure>
+          <figure class="belt__item"><img src="assets/img/life/isb-1.webp" alt="Hoạt động sinh viên UEH.ISB" loading="lazy" decoding="async"><figcaption>UEH.ISB</figcaption></figure>
+          <figure class="belt__item"><img src="assets/img/life/fjcu-choir.webp" alt="Dàn hợp xướng Fu Jen" loading="lazy" decoding="async"><figcaption>Fu Jen</figcaption></figure>
+          <figure class="belt__item"><img src="assets/img/life/isb-2.webp" alt="Hoạt động sinh viên UEH.ISB" loading="lazy" decoding="async"><figcaption>UEH.ISB</figcaption></figure>
+          <figure class="belt__item"><img src="assets/img/life/fjcu-volley.webp" alt="Bóng chuyền tại Fu Jen" loading="lazy" decoding="async"><figcaption>Fu Jen</figcaption></figure>
+          <figure class="belt__item"><img src="assets/img/life/isb-3.webp" alt="Hoạt động sinh viên UEH.ISB" loading="lazy" decoding="async"><figcaption>UEH.ISB</figcaption></figure>
+          <figure class="belt__item"><img src="assets/img/life/fjcu-fire.webp" alt="Múa lửa tại Fu Jen" loading="lazy" decoding="async"><figcaption>Fu Jen</figcaption></figure>
+          <figure class="belt__item"><img src="assets/img/life/isb-4.webp" alt="Hoạt động sinh viên UEH.ISB" loading="lazy" decoding="async"><figcaption>UEH.ISB</figcaption></figure>
+          <figure class="belt__item"><img src="assets/img/life/fjcu-picnic.webp" alt="Dã ngoại cùng sinh viên Fu Jen" loading="lazy" decoding="async"><figcaption>Fu Jen</figcaption></figure>
+          <figure class="belt__item"><img src="assets/img/life/isb-5.webp" alt="Hoạt động sinh viên UEH.ISB" loading="lazy" decoding="async"><figcaption>UEH.ISB</figcaption></figure>
+          <figure class="belt__item"><img src="assets/img/life/fjcu-run.webp" alt="Giải chạy tại Fu Jen" loading="lazy" decoding="async"><figcaption>Fu Jen</figcaption></figure>
         </div>
-      </div>
-    </section>
-
-    <!-- ============ 8. ADMISSION ============ -->
-    <section class="section admission" id="tuyen-sinh" aria-labelledby="adm-title">
-      <div class="container admission__grid">
-        <div class="admission__media" data-reveal>
-          <div class="admission__img"><img src="assets/img/admission-students.jpg" alt="Sinh viên quốc tế tại khuôn viên Đại học Fu Jen" loading="lazy" width="1200" height="1092"></div>
-        </div>
-
-        <div class="admission__content">
-          <p class="eyebrow" data-reveal>Học bổng &amp; Tuyển sinh</p>
-          <h2 class="h2" id="adm-title" data-split>Điều kiện tuyển sinh</h2>
-
-          <h3 class="h4" data-reveal><i class="ph-bold ph-books" aria-hidden="true"></i> Điều kiện học thuật <span class="muted">— đáp ứng một trong các phương thức</span></h3>
-          <ol class="methods">
-            <li class="method"><span class="method__n">01</span><p>Đạt điểm chuẩn xét tuyển dựa trên kết quả học tập bậc THPT <mark>(GPA từ 7.5 trở lên)</mark></p></li>
-            <li class="method"><span class="method__n">02</span><p>Đạt điểm chuẩn xét tuyển dựa trên kết quả kỳ thi tốt nghiệp THPT</p></li>
-            <li class="method"><span class="method__n">03</span><p>Đạt điểm chuẩn xét tuyển dựa trên kết quả thi đánh giá năng lực do Đại học Quốc gia Hà Nội và TP. HCM tổ chức</p></li>
-            <li class="method"><span class="method__n">04</span><p>Chuyển tiếp từ các trường đại học trong và ngoài nước (xét theo trường hợp cụ thể)</p></li>
-          </ol>
-
-          <h3 class="h4" data-reveal><i class="ph-bold ph-chats-circle" aria-hidden="true"></i> Điều kiện tiếng Anh</h3>
-          <p class="english" data-reveal><strong>IELTS Academic 6.0</strong> trở lên <span class="muted">(điểm kỹ năng &gt; 5.0)</span></p>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============ 9. SCHOLARSHIP ============ -->
-    <section class="section scholar" id="hoc-bong" aria-labelledby="scholar-title">
-      <div class="scholar__glow" aria-hidden="true"></div>
-      <div class="container">
-        <div class="section-head section-head--split">
-          <div>
-            <p class="eyebrow eyebrow--light" data-reveal>Các suất học bổng</p>
-            <h2 class="h2 h2--light" id="scholar-title" data-split>ISP’s Talent Scholarship</h2>
-          </div>
-          <p class="lead lead--light" data-reveal>Mức học bổng từ <strong>30% đến 60% học phí</strong>, dựa trên năng lực học thuật và trình độ ngoại ngữ.</p>
-        </div>
-
-        <div class="scholar__grid">
-          <div class="stairs" role="tablist" aria-label="Các mức học bổng">
-            <button class="stair" role="tab" aria-selected="false" data-level="30" style="--h:.5"><span class="stair__pct"><span class="odo" data-value="30">30</span><sup>%</sup></span><span class="stair__name">Emerging<br>Talent</span></button>
-            <button class="stair" role="tab" aria-selected="false" data-level="40" style="--h:.66"><span class="stair__pct"><span class="odo" data-value="40">40</span><sup>%</sup></span><span class="stair__name">Outstanding<br>Talent</span></button>
-            <button class="stair" role="tab" aria-selected="false" data-level="50" style="--h:.83"><span class="stair__pct"><span class="odo" data-value="50">50</span><sup>%</sup></span><span class="stair__name">Premier<br>Talent</span></button>
-            <button class="stair is-active" role="tab" aria-selected="true" data-level="60" style="--h:1"><span class="stair__pct"><span class="odo" data-value="60">60</span><sup>%</sup></span><span class="stair__name">Elite<br>Talent</span></button>
-          </div>
-
-          <div class="criteria" aria-live="polite">
-            <p class="criteria__pct"><span data-c="pct">60</span><sup>%</sup> <small>học phí</small></p>
-            <h3 class="criteria__name" data-c="name">Elite Talent</h3>
-            <div class="criteria__opts">
-              <div class="opt">
-                <p class="opt__label">Điều kiện A</p>
-                <div class="opt__grid">
-                  <div class="opt__cell"><span class="opt__k"><i class="ph-bold ph-exam" aria-hidden="true"></i> GPA lớp 12</span><b class="opt__v" data-c="a-gpa">8.5</b><span class="opt__s">trở lên</span></div>
-                  <div class="opt__cell"><span class="opt__k"><i class="ph-bold ph-certificate" aria-hidden="true"></i> IELTS Academic</span><b class="opt__v" data-c="a-ielts">7.0</b><span class="opt__s">hoặc tương đương</span></div>
-                </div>
-              </div>
-              <p class="opt__or">hoặc</p>
-              <div class="opt">
-                <p class="opt__label">Điều kiện B</p>
-                <div class="opt__grid">
-                  <div class="opt__cell"><span class="opt__k"><i class="ph-bold ph-exam" aria-hidden="true"></i> GPA lớp 12</span><b class="opt__v" data-c="b-gpa">8.0</b><span class="opt__s">trở lên</span></div>
-                  <div class="opt__cell"><span class="opt__k"><i class="ph-bold ph-certificate" aria-hidden="true"></i> IELTS Academic</span><b class="opt__v" data-c="b-ielts">7.5</b><span class="opt__s">hoặc tương đương</span></div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <form class="checker" aria-labelledby="checker-title" onsubmit="return false">
-          <div class="checker__head">
-            <i class="ph-bold ph-calculator" aria-hidden="true"></i>
-            <div>
-              <h3 id="checker-title">Ước tính học bổng của bạn</h3>
-              <p>Kéo điểm GPA và chọn IELTS để xem mức học bổng dự kiến.</p>
-            </div>
-          </div>
-          <div class="checker__row">
-            <label class="checker__field">
-              <span>GPA lớp 12: <output id="gpa-out">8.5</output></span>
-              <input type="range" id="gpa" min="7" max="10" step="0.1" value="8.5">
-            </label>
-            <fieldset class="checker__field">
-              <legend>IELTS Academic</legend>
-              <div class="chips" id="ielts-chips">
-                <label><input type="radio" name="ielts" value="5.5"><span>&lt; 6.0</span></label>
-                <label><input type="radio" name="ielts" value="6.0"><span>6.0</span></label>
-                <label><input type="radio" name="ielts" value="6.5"><span>6.5</span></label>
-                <label><input type="radio" name="ielts" value="7.0" checked><span>7.0</span></label>
-                <label><input type="radio" name="ielts" value="7.5"><span>7.5+</span></label>
-              </div>
-            </fieldset>
-          </div>
-          <p class="checker__result" id="checker-result" aria-live="polite"></p>
-        </form>
       </div>
     </section>
 
@@ -587,14 +629,13 @@
       <div class="container signup__grid">
         <div class="signup__intro">
           <p class="eyebrow" data-reveal>Viện ISB</p>
-          <h2 class="h2" id="form-title" data-split>ISP – Cử nhân Kinh doanh Liên ngành</h2>
-          <p class="lead" data-reveal>PHHS vui lòng điền đầy đủ thông tin bên dưới để nhận được cập nhật mới nhất về phương thức tuyển sinh, học phí, chương trình đào tạo và lộ trình nộp hồ sơ.</p>
+          <h2 class="h2" id="form-title" data-split>ISP – Cử nhân<br><em>Kinh doanh Liên ngành</em></h2>
+          <p class="lead" data-reveal>Đăng ký để nhận tư vấn chi tiết về phương thức tuyển sinh, học phí, chương trình đào tạo và lộ trình học phù hợp với định hướng của bạn.</p>
           <ul class="perks" data-reveal>
             <li><i class="ph-bold ph-check-circle" aria-hidden="true"></i> Phương thức tuyển sinh &amp; lộ trình nộp hồ sơ</li>
             <li><i class="ph-bold ph-check-circle" aria-hidden="true"></i> Học phí &amp; học bổng Talent Scholarship</li>
             <li><i class="ph-bold ph-check-circle" aria-hidden="true"></i> Tư vấn chọn 2 trong 4 lĩnh vực</li>
           </ul>
-          <a class="hotline" href="tel:0906738898" data-reveal><i class="ph-bold ph-phone-call" aria-hidden="true"></i><span><small>Hotline tư vấn</small>0906 738 898</span></a>
         </div>
 
         <!-- TODO(integration): gắn action/endpoint CRM thực tế vào data-endpoint -->
@@ -607,27 +648,20 @@
                 <label><input type="radio" name="role" value="student" required checked><span><i class="ph-bold ph-student" aria-hidden="true"></i> Học sinh</span></label>
               </div>
               <div class="grid-2">
-                <div class="field"><input id="f-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder=" " required pattern="^(0|\+84)[0-9]{9}$"><label for="f-phone">Số di động *</label><small class="field__err">Vui lòng nhập số di động hợp lệ</small></div>
-                <div class="field"><input id="f-email" name="email" type="email" autocomplete="email" placeholder=" " required><label for="f-email">Email cá nhân *</label><small class="field__err">Vui lòng nhập email hợp lệ</small></div>
+                <div class="field"><label for="f-phone">Số điện thoại <span class="req" aria-hidden="true">*</span></label><input id="f-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="Nhập số điện thoại" required pattern="^(0|\+84)[0-9]{9}$"><small class="field__err">Vui lòng nhập số điện thoại hợp lệ</small></div>
+                <div class="field"><label for="f-email">Email cá nhân <span class="req" aria-hidden="true">*</span></label><input id="f-email" name="email" type="email" autocomplete="email" placeholder="Nhập email của bạn" required><small class="field__err">Vui lòng nhập email hợp lệ</small></div>
               </div>
             </fieldset>
 
             <fieldset class="form__group">
               <legend>Thông tin học sinh</legend>
-              <div class="field"><input id="f-name" name="name" type="text" autocomplete="name" placeholder=" " required><label for="f-name">Họ &amp; Tên học sinh *</label><small class="field__err">Vui lòng nhập họ tên</small></div>
+              <div class="field"><label for="f-name">Họ và tên học sinh <span class="req" aria-hidden="true">*</span></label><input id="f-name" name="name" type="text" autocomplete="name" placeholder="Nhập họ và tên đầy đủ" required><small class="field__err">Vui lòng nhập họ tên</small></div>
               <div class="grid-2">
-                <div class="field"><input id="f-dob" name="dob" type="date" placeholder=" " required min="1990-01-01" max="2015-12-31"><label for="f-dob" class="is-fixed">Ngày sinh *</label><small class="field__err">Vui lòng chọn ngày sinh</small></div>
-                <div class="field field--select"><select id="f-gender" name="gender" required><option value="" selected disabled></option><option>Nam</option><option>Nữ</option><option>Khác</option></select><label for="f-gender">Giới tính *</label><small class="field__err">Vui lòng chọn</small></div>
+                <div class="field"><label for="f-school">Trường THPT <span class="req" aria-hidden="true">*</span></label><input id="f-school" name="school" type="text" placeholder="Nhập tên trường THPT" required><small class="field__err">Vui lòng nhập tên trường</small></div>
+                <div class="field field--select"><label for="f-city">Tỉnh/Thành phố <span class="req" aria-hidden="true">*</span></label><select id="f-city" name="city" required><option value="" selected disabled>Chọn Tỉnh/Thành phố</option><option>TP. Hồ Chí Minh</option><option>Hà Nội</option><option>Tỉnh / TP khác</option></select><small class="field__err">Vui lòng chọn</small></div>
               </div>
-              <div class="grid-2">
-                <div class="field"><input id="f-school" name="school" type="text" placeholder=" " required><label for="f-school">Trường THPT *</label><small class="field__err">Vui lòng nhập tên trường</small></div>
-                <div class="field field--select"><select id="f-city" name="city" required><option value="" selected disabled></option><option>TP. Hồ Chí Minh</option><option>Hà Nội</option><option>Tỉnh / TP khác</option></select><label for="f-city">Tỉnh / TP *</label><small class="field__err">Vui lòng chọn</small></div>
-              </div>
-              <div class="grid-2">
-                <div class="field field--select"><select id="f-level" name="level" required><option value="" selected disabled></option><option>Lớp 10</option><option>Lớp 11</option><option>Lớp 12</option><option>Đã tốt nghiệp THPT</option></select><label for="f-level">Trình độ học vấn *</label><small class="field__err">Vui lòng chọn</small></div>
-                <div class="field"><input id="f-gpa" name="gpa" type="number" inputmode="decimal" min="0" max="10" step="0.1" placeholder=" " required><label for="f-gpa">Điểm TB năm/học kỳ gần nhất *</label><small class="field__err">Nhập điểm từ 0 – 10</small></div>
-              </div>
-              <div class="field field--select"><select id="f-eng" name="english" required><option value="" selected disabled></option><option>IELTS dưới 5.5 / tương đương</option><option>IELTS 5.5 – 6.5 / tương đương</option><option>IELTS 6.5 – 8.0 / tương đương</option><option>IELTS trên 8.0 / tương đương</option><option>Chưa có chứng chỉ (đang học / ôn thi)</option><option>Khác</option></select><label for="f-eng">Trình độ tiếng Anh *</label><small class="field__err">Vui lòng chọn</small></div>
+              <div class="field field--select"><label for="f-level">Trình độ học vấn <span class="req" aria-hidden="true">*</span></label><select id="f-level" name="level" required><option value="" selected disabled>Chọn trình độ học vấn</option><option>Lớp 10</option><option>Lớp 11</option><option>Lớp 12</option><option>Đã tốt nghiệp THPT</option></select><small class="field__err">Vui lòng chọn</small></div>
+              <div class="field field--select"><label for="f-eng">Trình độ tiếng Anh <span class="req" aria-hidden="true">*</span></label><select id="f-eng" name="english" required><option value="" selected disabled>Chọn trình độ tiếng Anh</option><option>IELTS dưới 5.5 / tương đương</option><option>IELTS 5.5 – 6.5 / tương đương</option><option>IELTS 6.5 – 8.0 / tương đương</option><option>IELTS trên 8.0 / tương đương</option><option>Chưa có chứng chỉ (đang học / ôn thi)</option><option>Khác</option></select><small class="field__err">Vui lòng chọn</small></div>
             </fieldset>
 
             <fieldset class="form__group">
@@ -641,7 +675,7 @@
               </div>
             </fieldset>
 
-            <label class="consent"><input type="checkbox" name="consent" required><span>Bằng việc đăng ký, bạn xác nhận đã đọc và đồng ý với Chính sách bảo mật và Điều khoản sử dụng, đồng thời cho phép chúng tôi sử dụng dữ liệu đã cung cấp nhằm mục đích tư vấn và hỗ trợ học tập.</span></label>
+            <label class="consent"><input type="checkbox" name="consent_marketing" value="yes"><span>Bằng việc nhấn “Đăng ký tư vấn”, bạn đồng ý để Viện ISB xử lý thông tin đã cung cấp nhằm liên hệ và tư vấn theo <a href="#" data-todo="privacy-url">Chính sách bảo mật</a>.</span></label>
 
             <button class="btn btn--primary btn--lg btn--block form__submit" type="submit"><span>Đăng ký tư vấn</span><i class="ph-bold ph-paper-plane-tilt" aria-hidden="true"></i></button>
           </div>
@@ -702,10 +736,9 @@
     <div class="video-modal__frame"></div>
   </dialog>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-  <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
-  <script src="assets/js/main.js?v=20260930d"></script>
-  <script type="module" src="assets/js/roadmap-map.js"></script>
+  <script src="assets/vendor/gsap.min.js" defer></script>
+  <script src="assets/vendor/ScrollTrigger.min.js" defer></script>
+  <script src="assets/vendor/lenis.min.js" defer></script>
+  <script src="assets/js/main.min.js?v=227e2c15" defer></script>
 </body>
 </html>

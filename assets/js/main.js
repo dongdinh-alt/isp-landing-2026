@@ -10,6 +10,8 @@
   const root = document.documentElement;
   const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const finePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+  // breakpoints — keep in sync with the @media rules in main.css
+  const BP = { phone: '(max-width: 767px)', desktop: 1024 };
   const hasGSAP = typeof window.gsap !== 'undefined' && typeof window.ScrollTrigger !== 'undefined';
   const header = $('.site-header');
   const headerH = () => header.offsetHeight;
@@ -80,7 +82,8 @@
   const progress = $('.scroll-progress span');
   const navLinks = $$('.nav a[data-nav]');
   const indicator = $('.nav__indicator');
-  const navSections = ['gioi-thieu', 'chuong-trinh', 'trai-nghiem', 'tuyen-sinh'].map(id => document.getElementById(id));
+  // page order; 'dang-ky' has no nav link, so nothing is highlighted while on the form
+  const navSections = ['gioi-thieu', 'chuong-trinh', 'tuyen-sinh', 'trai-nghiem', 'dang-ky'].map(id => document.getElementById(id));
   const hero = $('.hero');
   const mobileCta = $('.mobile-cta');
   const formSection = $('#dang-ky');
@@ -95,7 +98,7 @@
   function moveIndicator(link) {
     if (!indicator) return;
     if (!link) { indicator.style.opacity = 0; return; }
-    const pad = 14;
+    const pad = 0; // pill covers the whole link
     indicator.style.opacity = 1;
     indicator.style.width = (link.offsetWidth - pad * 2) + 'px';
     indicator.style.transform = `translateX(${link.offsetLeft + pad}px)`;
@@ -244,11 +247,15 @@
     $$('.w', el).forEach(w => w.setAttribute('aria-hidden', 'true'));
     return $$('.w > span', el);
   }
-  // gradient text on words inside <em>
-  const emStyle = document.createElement('style');
-  emStyle.textContent = `.h2 .is-em > span{background:var(--g-text);-webkit-background-clip:text;background-clip:text;color:transparent}
-  .h2--light .is-em > span{background:linear-gradient(100deg,#fff,var(--c-pink));-webkit-background-clip:text;background-clip:text}`;
-  document.head.appendChild(emStyle);
+  // one continuous red→purple gradient per heading: each highlighted word shows its own slice of it
+  const paintEm = () => $$('.h2').forEach(h => {
+    const ws = $$('.is-em > span', h); if (!ws.length) return;
+    const W = h.clientWidth, x0 = h.getBoundingClientRect().left;
+    ws.forEach(sp => { sp.style.backgroundSize = W + 'px 100%'; sp.style.backgroundPosition = (x0 - sp.getBoundingClientRect().left) + 'px 0'; });
+  });
+  requestAnimationFrame(paintEm);
+  addEventListener('resize', paintEm);
+  document.fonts && document.fonts.ready.then(paintEm);
 
   /* ---------- Video modal ---------- */
   const modal = $('.video-modal');
@@ -311,7 +318,28 @@
   document.fonts && document.fonts.ready.then(initInk);
   initInk();
 
+  // mobile: tabs are hidden and .panels is a scroll-snap slider (CSS); keep the dots in sync
+  const majorTrack = $('.panels');
+  const dots = $$('.swipe-hint__dot');
+  const slides = $$('.panel', majorTrack);
+  const slideAt = i => slides[i].offsetLeft - slides[0].offsetLeft;
+  let syncQueued = false;
+  majorTrack.addEventListener('scroll', () => {
+    if (syncQueued) return;
+    syncQueued = true;
+    requestAnimationFrame(() => {
+      syncQueued = false;
+      const step = slideAt(1) || 1;
+      const i = Math.min(slides.length - 1, Math.round(majorTrack.scrollLeft / step));
+      dots.forEach((d, j) => d.classList.toggle('is-active', j === i));
+    });
+  }, { passive: true });
+  dots.forEach(d => d.addEventListener('click', () => {
+    majorTrack.scrollTo({ left: slideAt(+d.dataset.slide), behavior: reduced ? 'auto' : 'smooth' });
+  }));
+
   const picks = [];
+  const mobileMQ = window.matchMedia(BP.phone);
   const slots = $$('.slot[data-slot]');
   const msg = $('.builder__msg');
   const vennA = $('.venn__c--a'), vennB = $('.venn__c--b');
@@ -332,10 +360,12 @@
     });
     // keep the registration form's pathway field in sync
     $$('input[data-sync]').forEach(cb => { cb.checked = picks.includes(cb.dataset.sync); });
+    // show the picked state on the tab and on the info card too
+    $$('.tab[data-major], .panel[data-major]').forEach(el => el.classList.toggle('is-picked', picks.includes(el.dataset.major)));
     $$('[data-pick]').forEach(b => {
       const on = picks.includes(b.dataset.pick);
       b.setAttribute('aria-pressed', on);
-      b.querySelector('span').textContent = on ? 'Đã chọn · Bỏ chọn' : 'Thêm vào lộ trình';
+      b.querySelector('span').textContent = on ? 'Bỏ chọn' : 'Thêm vào lộ trình';
     });
     msg.innerHTML = picks.length === 2
       ? `Lộ trình của bạn: <strong>Kinh doanh × ${MAJORS[picks[0]].vi} × ${MAJORS[picks[1]].vi}</strong>. Đăng ký để được tư vấn chi tiết!`
@@ -353,7 +383,13 @@
   }
   document.addEventListener('click', e => {
     const p = e.target.closest('[data-pick]');
-    if (p) togglePick(p.dataset.pick);
+    if (p) {
+      togglePick(p.dataset.pick);
+      // mobile: once both fields are picked from the cards, bring the pathway builder into view
+      if (picks.length === 2 && picks.includes(p.dataset.pick) && mobileMQ.matches) {
+        setTimeout(() => scrollToEl($('.builder')), 350);
+      }
+    }
     const u = e.target.closest('[data-unpick]');
     if (u) togglePick(u.dataset.unpick);
   });
@@ -406,7 +442,7 @@
     const match = [60, 50, 40, 30].find(l => ok(LEVELS[l].a) || ok(LEVELS[l].b));
     stairs.forEach(s => s.classList.toggle('is-match', Number(s.dataset.level) === match));
     if (match) {
-      result.innerHTML = `Với GPA <strong>${g.toFixed(1)}</strong> và IELTS <strong>${i < 6 ? '< 6.0' : i.toFixed(1)}</strong>, bạn có thể đạt học bổng <strong>${match}% – ${LEVELS[match].name}</strong>. <small>(Kết quả mang tính tham khảo)</small>`;
+      result.innerHTML = `Với GPA <strong>${g.toFixed(1)}</strong> và IELTS <strong>${i < 6 ? '< 6.0' : i.toFixed(1)}</strong>, bạn có thể đạt học bổng <strong>${match}% – ${LEVELS[match].name}</strong>.`;
       pinnedLevel = match; showLevel(match);
     } else if (i < 6) {
       result.innerHTML = 'Chương trình yêu cầu <strong>IELTS Academic 6.0</strong> trở lên (điểm kỹ năng > 5.0). <a href="#dang-ky">Đăng ký tư vấn</a> để nhận lộ trình chuẩn bị.';
@@ -461,67 +497,6 @@
     }
   });
 
-  /* ---------- Hero orbit canvas ---------- */
-  function heroOrbit() {
-    const canvas = $('.hero__orbit');
-    if (!canvas) return;
-    const ctx = canvas.getContext('2d');
-    let w, h, dpr, parts = [], running = true, mx = 0, my = 0, t0 = performance.now();
-    const N = innerWidth < 768 ? 70 : 150;
-    function resize() {
-      dpr = Math.min(devicePixelRatio || 1, 2);
-      w = canvas.clientWidth; h = canvas.clientHeight;
-      canvas.width = w * dpr; canvas.height = h * dpr;
-      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-    }
-    for (let i = 0; i < N; i++) {
-      parts.push({
-        a: Math.random() * Math.PI * 2,
-        sp: (.0006 + Math.random() * .0016) * (Math.random() < .85 ? 1 : -1),
-        off: (Math.random() - .5) * .22,
-        r: Math.random() * 1.8 + .4,
-        al: Math.random() * .7 + .2,
-        tw: Math.random() * Math.PI * 2
-      });
-    }
-    function draw(now) {
-      const dt = Math.min(now - t0, 50); t0 = now;
-      ctx.clearRect(0, 0, w, h);
-      const mobile = w < 768;
-      const cx = w * (mobile ? .6 : .55) + mx * 18, cy = h * (mobile ? .38 : .44) + my * 12;
-      const rx = w * (mobile ? .7 : .42), ry = h * (mobile ? .12 : .17);
-      const rot = -.36;
-      const cos = Math.cos(rot), sin = Math.sin(rot);
-      ctx.globalCompositeOperation = 'lighter';
-      for (const p of parts) {
-        p.a += p.sp * dt;
-        p.tw += .003 * dt;
-        const k = 1 + p.off;
-        const ex = Math.cos(p.a) * rx * k, ey = Math.sin(p.a) * ry * k;
-        const x = cx + ex * cos - ey * sin, y = cy + ex * sin + ey * cos;
-        const front = Math.sin(p.a) > 0 ? 1 : .45;
-        const alpha = p.al * front * (.6 + .4 * Math.sin(p.tw));
-        const rr = p.r * (front === 1 ? 1.3 : .9);
-        const g = ctx.createRadialGradient(x, y, 0, x, y, rr * 4);
-        g.addColorStop(0, `rgba(255,235,236,${alpha})`);
-        g.addColorStop(1, 'rgba(255,120,130,0)');
-        ctx.fillStyle = g;
-        ctx.beginPath(); ctx.arc(x, y, rr * 4, 0, Math.PI * 2); ctx.fill();
-      }
-      ctx.globalCompositeOperation = 'source-over';
-      if (running && !reduced) requestAnimationFrame(draw);
-    }
-    resize();
-    addEventListener('resize', resize);
-    if (finePointer) hero.addEventListener('mousemove', e => { mx = e.clientX / innerWidth - .5; my = e.clientY / innerHeight - .5; });
-    new IntersectionObserver(([en]) => {
-      const was = running; running = en.isIntersecting;
-      if (running && !was && !reduced) { t0 = performance.now(); requestAnimationFrame(draw); }
-    }).observe(hero);
-    requestAnimationFrame(draw);
-  }
-  heroOrbit();
-
   /* ---------- Micro-interactions (pointer: fine only) ---------- */
   if (finePointer && !reduced) {
     // spotlight
@@ -565,6 +540,23 @@
   /* =========================================================
      Scroll choreography (GSAP)
      ========================================================= */
+  // UEH + Fu Jen side by side: give matching ranking rows the same height so row 2 lines up across both schools
+  const uniGrids = $$('.unis .rank-grid');
+  const alignUniRows = () => {
+    const items = uniGrids.map(g => [...g.children]);
+    items.flat().forEach(li => (li.style.minHeight = ''));
+    if (innerWidth < BP.desktop || uniGrids.length < 2) return; // stacked layout: nothing to align
+    const cols = 2, rows = Math.max(...items.map(l => Math.ceil(l.length / cols)));
+    for (let r = 0; r < rows; r++) {
+      const row = items.flatMap(l => l.slice(r * cols, r * cols + cols));
+      const h = Math.max(...row.map(li => li.offsetHeight));
+      row.forEach(li => (li.style.minHeight = h + 'px'));
+    }
+  };
+  alignUniRows();
+  addEventListener('resize', alignUniRows);
+  document.fonts && document.fonts.ready.then(alignUniRows);
+
   if (!hasGSAP || reduced) {
     root.classList.remove('js');
     $$('.scramble').forEach(el => (el.textContent = el.dataset.text));
@@ -586,7 +578,7 @@
     });
   });
   const h1 = $('#hero-title');
-  h1.setAttribute('aria-label', 'ISP – Interdisciplinary Sciences Pathways');
+  h1.setAttribute('aria-label', 'Cử nhân Kinh doanh Liên ngành');
   $$('.hero__title .line').forEach(l => (l.style.overflow = 'hidden'));
 
   const intro = gsap.timeline({ defaults: { ease: 'expo.out' }, delay: .1 });
@@ -597,14 +589,12 @@
     .from('.hero__eyebrow', { y: 20, autoAlpha: 0, duration: 1 }, .35)
     .from(heroChars, { yPercent: 115, rotate: 6, duration: 1.3, stagger: .018 }, .45)
     .from('.hero__lead, .hero__tagline, .hero__actions', { y: 30, autoAlpha: 0, stagger: .1, duration: 1.2 }, 1)
-    .from('.hero__ticker', { yPercent: 100, duration: 1.2 }, 1.2)
-    .from('.hero__orbit', { autoAlpha: 0, duration: 2 }, .6);
+    .from('.hero__ticker', { yPercent: 100, duration: 1.2 }, 1.2);
 
   /* --- Hero scroll-out --- */
   gsap.timeline({ scrollTrigger: { trigger: hero, start: 'top top', end: 'bottom top', scrub: true } })
     .to('.hero__media img', { scale: 1.12, yPercent: 8, ease: 'none' }, 0)
-    .to('.hero__content', { yPercent: -18, autoAlpha: .15, ease: 'none' }, 0)
-    .to('.hero__orbit', { yPercent: -12, ease: 'none' }, 0);
+    .to('.hero__content', { yPercent: -18, autoAlpha: .15, ease: 'none' }, 0);
 
   /* --- Split headings --- */
   $$('[data-split]').forEach(el => {
@@ -637,57 +627,16 @@
   batchReveal('.testi', { y: 80 });
   batchReveal('.life__stat');
 
-  /* --- Roadmap: flight path --- */
-  const mm = gsap.matchMedia();
-  const ticks = $$('.route__tick');
-  const tickAt = ticks.map(t => parseFloat(t.dataset.at || 0)); // positions along the track (Năm 1–4, flight, Fu Jen)
-  const buildRoute = (pin) => {
-    const tl = gsap.timeline({
-      defaults: { ease: 'none' },
-      scrollTrigger: {
-        trigger: pin ? '.roadmap__pin' : '.route',
-        start: pin ? 'top top' : 'top 75%',
-        end: pin ? '+=160%' : 'bottom 60%',
-        scrub: pin ? 1 : .6,
-        pin: pin,
-        anticipatePin: 1,
-        onUpdate: self => {
-          const p = self.progress / .82; // track spans first 82% of timeline
-          ticks.forEach((t, i) => t.classList.toggle('is-on', p >= tickAt[i] - .001));
-        }
-      }
-    });
-    // track spans 0 → .82 of the timeline; tick k is reached at .82 × its position
-    tl.to('.route__fill', { scaleX: 1, duration: .82 }, 0)
-      .fromTo('.route__plane', { left: '0%' }, { left: '100%', duration: .82 }, 0)
-      .from('.phase--vn .phase__head, .phase--vn .phase__place, .phase--vn .phase__school, .phase--vn .phase__desc', { autoAlpha: .15, y: 20, stagger: .02, duration: .1 }, 0)
-      .from('.phase--vn .block', { autoAlpha: 0, x: -30, stagger: .08, duration: .1 }, .03)
-      .from('.phase--tw .phase__main', { autoAlpha: .18, duration: .1 }, .25)          // plane crosses the divider (33%)
-      .from('.phase--tw .block', { autoAlpha: 0, x: 30, stagger: .06, duration: .1 }, .36)
-      .to('.route__plane', { autoAlpha: 0, scale: .6, duration: .03 }, .8)              // lands on the Fu Jen checkpoint
-      .from('.route__finish', { autoAlpha: 0, y: 30, scale: .96, duration: .1 }, .8)    // degree card appears at graduation
-      .to({}, { duration: .08 });
-    // share progress with the 3D map background (assets/js/roadmap-map.js)
-    window.ISP_ROUTE = window.ISP_ROUTE || { progress: 0 };
-    tl.eventCallback('onUpdate', () => { window.ISP_ROUTE.progress = tl.progress(); });
-    return tl;
-  };
-  mm.add('(min-width: 1024px) and (min-height: 760px)', () => {
-    $('.roadmap').classList.add('is-pinned');
-    buildRoute(true);
-    return () => $('.roadmap').classList.remove('is-pinned');
-  });
-  mm.add('(max-width: 1023px), (max-height: 759px)', () => {
-    ticks.forEach(t => t.classList.add('is-on'));
-    buildRoute(false);
-  });
+  /* --- Roadmap: static 3-column layout — no progress bar, no pin, no scroll-triggered reveal (2026-10) --- */
 
   /* --- Majors: builder float --- */
   gsap.from('.venn__c', { scale: 0, transformOrigin: 'center', stagger: .12, duration: 1.2, ease: 'elastic.out(1, .6)', scrollTrigger: { trigger: '.builder', start: 'top 80%', once: true } });
 
   /* --- Fu Jen parallax + scramble --- */
-  gsap.fromTo('.fujen__bg', { yPercent: -8 }, { yPercent: 8, ease: 'none', scrollTrigger: { trigger: '.fujen', start: 'top bottom', end: 'bottom top', scrub: true } });
-  gsap.from('.mega', { yPercent: 20, autoAlpha: 0, duration: 1.4, ease: 'expo.out', scrollTrigger: { trigger: '.fujen__century', start: 'top 85%', once: true } });
+  // university halves (UEH, Fu Jen): gentle background parallax
+  $$('.uni').forEach(sec => {
+    gsap.fromTo(sec.querySelector('.uni__photo img'), { yPercent: -10 }, { yPercent: 0, ease: 'none', scrollTrigger: { trigger: sec, start: 'top bottom', end: 'bottom top', scrub: true } });
+  });
   ScrollTrigger.batch('.rank', { start: 'top 90%', once: true, onEnter: els => gsap.from(els, { y: 60, autoAlpha: 0, stagger: .1, duration: 1.1, ease: 'expo.out' }) });
   $$('.scramble').forEach(el => ScrollTrigger.create({ trigger: el, start: 'top 90%', once: true, onEnter: () => setTimeout(() => scramble(el), 400) }));
 
