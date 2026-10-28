@@ -21,6 +21,7 @@ tools/build-icons.py       subset Phosphor Bold to the icons in use + regenerate
 2. Added or removed a `ph-*` icon? Run `python3 tools/build-icons.py` (needs `pip install fonttools brotli`).
 3. Run `sh tools/build.sh` (needs Node; esbuild comes via npx). It writes the `.min` files and new `?v=` hashes.
 4. New photos: export WebP (quality ~72, max ~1600px wide; ~800px for the photo belt) and give the `<img>` `width`/`height`.
+   - Major photos (`assets/img/majors/{gm,gt,gs,gst}-{600,1000}.webp`): Unsplash (free licence), cropped to 2:1 because the frame is 3:1 on desktop and 2:1 on phones. Sources: `photo-1542744173-8e7e53415bb0` (gm), `photo-1551288049-bebda4e38f71` (gt), `photo-1511546705877-f449b6f6dcfd` (gs), `photo-1590274853856-f22d5ee3d228` (gst) on images.unsplash.com.
 
 ## Stack
 - **GSAP 3.12.5 + ScrollTrigger**, **Lenis 1.1.13**: self-hosted in `assets/vendor/`, loaded with `defer`.
@@ -87,9 +88,8 @@ All design values live in `:root` at the top of `main.css`. **Component rules us
 ## TODO before going live
 1. **Form backend**: put the CRM/endpoint URL in `data-endpoint` on `#signup-form`. When it is empty the form runs in demo mode: it validates, waits 900ms and shows the success state. Field names: `role, phone, email, name, school, city, level, english, pathway[] (0–2 values), consent_marketing`.
 2. **Consent checkbox** (`consent_marketing`): its label is now the privacy-processing consent, but the checkbox is still optional and keeps its old name. Decide with legal whether it must be `required`, and rename the field (e.g. `consent_privacy`) together with the CRM mapping.
-3. **Major images** are hotlinked from Unsplash (free license). For production, download them into `assets/img/` and self-host.
-4. **Privacy policy**: the consent text links to it (`data-todo="privacy-url"`, currently `#`); set the real URL.
-5. Add analytics and pixel tags as needed.
+3. **Privacy policy**: the consent text links to it (`data-todo="privacy-url"`, currently `#`); set the real URL.
+4. Add analytics and pixel tags as needed.
 
 ## Local preview
 Serve the folder with any static server, e.g. `python3 -m http.server` from this directory.
